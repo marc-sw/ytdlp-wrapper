@@ -16,16 +16,16 @@ func TestVersion(t *testing.T) {
 }
 
 func TestCommandBuilding(t *testing.T) {
-	var command Command = Command{}
+	var arguments Arguments = Arguments{}
 
-	command.SetFlag(FlagVerbose)
-	command.SetParam(ParamAudio(AudioAAC))
-	command.SetFlag(FlagVerbose)
-	command.Remove(FlagVerbose)
-	command.SetFlag(FlagConsoleTitle)
-	command.SetParam(ParamAudio(AudioAAC))
+	arguments.SetFlag(FlagVerbose)
+	arguments.SetParam(ParamAudio(AudioAAC))
+	arguments.SetFlag(FlagVerbose)
+	arguments.Remove(FlagVerbose)
+	arguments.SetFlag(FlagConsoleTitle)
+	arguments.SetParam(ParamAudio(AudioAAC))
 
-	var args []string = command.Build()
+	var args []string = arguments.Build()
 
 	if len(args) != 3 {
 		t.Errorf("wrong args length, expectet: %v, got: %v", 3, len(args))

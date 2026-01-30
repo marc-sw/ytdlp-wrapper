@@ -60,7 +60,7 @@ const (
 	FlagCacheDir                    string = "--cache-dir"
 	FlagFfmpegLocation              string = "--ffmpeg-location"
 	FlagProgressTemplate            string = "--progress-template"
-	FlagFilenameTemplate            string = "-o"
+	flagFilenameTemplate            string = "-o"
 	FlagPrint                       string = "-O"
 	FlagAudioQuality                string = "--audio-quality"
 	flagAudioFormat                 string = "--audio-format"
@@ -70,7 +70,8 @@ const (
 )
 
 var (
-	ParamAudio = param(flagAudioFormat)
+	ParamAudio    = param(flagAudioFormat)
+	ParamFilename = param(flagFilenameTemplate)
 )
 
 func param(flag string) func(string) (string, string) {

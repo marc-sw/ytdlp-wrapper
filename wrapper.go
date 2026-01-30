@@ -5,26 +5,30 @@ import (
 	"strings"
 )
 
-type Command map[string]string
+type Arguments map[string]string
 
-func (command Command) SetFlag(flag string) {
+func NewArguments() Arguments {
+	return make(map[string]string)
+}
+
+func (command Arguments) SetFlag(flag string) {
 	command.SetParam(flag, "")
 }
 
-func (command Command) SetParam(flag string, value string) {
+func (command Arguments) SetParam(flag string, value string) {
 	command[flag] = value
 }
 
-func (command Command) Remove(flag string) {
+func (command Arguments) Remove(flag string) {
 	delete(command, flag)
 }
 
-func (command Command) Contains(flag string) bool {
+func (command Arguments) Contains(flag string) bool {
 	_, exists := command[flag]
 	return exists
 }
 
-func (command Command) Build() []string {
+func (command Arguments) Build() []string {
 	var args []string
 	for k, v := range command {
 		args = append(args, string(k))
