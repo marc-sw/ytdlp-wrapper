@@ -5,21 +5,21 @@ import (
 	"strings"
 )
 
-type Command map[Flag]string
+type Command map[string]string
 
-func (command Command) SetFlag(flag Flag) {
+func (command Command) SetFlag(flag string) {
 	command.SetParam(flag, "")
 }
 
-func (command Command) SetParam(flag Flag, value string) {
+func (command Command) SetParam(flag string, value string) {
 	command[flag] = value
 }
 
-func (command Command) Remove(flag Flag) {
+func (command Command) Remove(flag string) {
 	delete(command, flag)
 }
 
-func (command Command) Contains(flag Flag) bool {
+func (command Command) Contains(flag string) bool {
 	_, exists := command[flag]
 	return exists
 }

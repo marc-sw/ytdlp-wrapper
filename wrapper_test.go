@@ -19,10 +19,11 @@ func TestCommandBuilding(t *testing.T) {
 	var command Command = Command{}
 
 	command.SetFlag(FlagVerbose)
-	command.SetParam(FlagAudioFormat, string(AudioAAC))
+	command.SetParam(ParamAudio(AudioAAC))
 	command.SetFlag(FlagVerbose)
 	command.Remove(FlagVerbose)
 	command.SetFlag(FlagConsoleTitle)
+	command.SetParam(ParamAudio(AudioAAC))
 
 	var args []string = command.Build()
 
