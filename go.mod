@@ -1,3 +1,3 @@
-module github.com/marc-sw/go-ytdlp-wrapper
+module github.com/marc-sw/ytdlp-wrapper
 
 go 1.24.0
