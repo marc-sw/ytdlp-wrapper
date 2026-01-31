@@ -11,6 +11,18 @@ func NewArguments() Arguments {
 	return make(map[string]string)
 }
 
+func DefaultMP3() Arguments {
+	args := NewArguments()
+	args.SetFlag(FlagEmbedMetadata)
+	args.SetFlag(FlagEmbedThumbnail)
+	args.SetFlag(FlagIgnoreWarnings)
+	args.SetFlag(FlagExtractAudio)
+	args.SetParam(ParamAudio(AudioMP3))
+	args.SetFlag(FlagWindowsFilenames)
+	args.SetFlag(FlagNoPlaylist)
+	return args
+}
+
 func (command Arguments) SetFlag(flag string) {
 	command.SetParam(flag, "")
 }
